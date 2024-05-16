@@ -14,10 +14,13 @@ const siderWidth = 240;
 
 const Chat: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [curIndex, setCurIndex] = useState(0);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-
+  const chatClickHandle = (index) => {
+    setCurIndex(index);
+  };
   return (
     <Layout hasSider>
       <Sider
@@ -62,9 +65,24 @@ const Chat: React.FC = () => {
               }}
             >
               {new Array(20).fill(1).map((_, index) => (
-                <Card size="small" key={index}>
-                  <p className="text-nowrap">
-                    New chat <FormOutlined /> <DeleteOutlined />
+                <Card
+                  size="small"
+                  key={index}
+                  className={`cursor-pointer ${
+                    curIndex === index && "active-chat"
+                  }`}
+                  onClick={() => chatClickHandle(index)}
+                >
+                  <p className="text-nowrap flex justify-between ">
+                    <Tooltip title={"New chat"}>
+                      <span className="ml-2 overflow-hidden text-ellipsis">
+                        New chat
+                      </span>
+                    </Tooltip>
+                    <span className="mr-1">
+                      <FormOutlined className="mr-1 hover:text-[#4096ff]" />
+                      <DeleteOutlined className="hover:text-[#ff7875]" />
+                    </span>
                   </p>
                 </Card>
               ))}

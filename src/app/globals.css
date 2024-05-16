@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   /* 全局主色、次要色 */
   --m-color-secondary: #e6f7ff; /* primary-1 */
@@ -51,4 +50,9 @@
 }
 ::-webkit-scrollbar-track {
   visibility: hidden;
+}
+
+.active-chat {
+  color: #0958d9 !important;
+  border-color: #0958d9 !important;
 }
