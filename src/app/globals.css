@@ -2,32 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* 全局主色、次要色 */
+  --m-color-secondary: #e6f7ff; /* primary-1 */
+  --m-color-primary: #1890ff; /* primary-6 */
+
+  /* 基于主色衍生出的其他颜色 */
+  --m-color-select: #e6f7ff; /* primary-1 */
+  --m-color-hover: #40a9ff; /* primary-5 */
+  --m-color-click: #096dd9; /* primary-7 */
+
+  /* 功能色 */
+  --m-color-link: #1890ff;
+  --m-color-success: #1890ff;
+  --m-color-waring: #faad14;
+  --m-color-error: #ff4d4f;
+
+  /* 中性色，一般用在文字上 */
+  --m-color-title: rgb(0 0 0 / 0.9);
+  --m-color-text-primary: rgb(0 0 0 / 0.9);
+  --m-color-text-secondary: rgb(0 0 0 / 0.7);
+  --m-color-disable: rgb(0 0 0 / 0.3);
+  --m-color-border: rgb(0 0 0 / 0.2);
+  --m-color-divider: rgb(0 0 0 / 0.1);
+  --m-color-bg-primary: rgb(0 0 0 / 0.06);
+  --m-color-bg-secondary: rgb(0 0 0 / 0.03);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  --m-color-title: rgb(255 255 255 / 0.9);
+  --m-color-text-primary: rgb(255 255 255 / 0.9);
+  --m-color-text-secondary: rgb(255 255 255 / 0.7);
+  --m-color-disable: rgb(255 255 255 / 0.3);
+  --m-color-border: rgb(255 255 255 / 0.2);
+  --m-color-divider: rgb(255 255 255 / 0.1);
+  --m-color-bg-primary: rgb(255 255 255 / 0.08);
+  --m-color-bg-secondary: rgb(255 255 255 / 0.04);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+::-webkit-scrollbar {
+  width: 4px;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar-thumb {
+  width: 4px;
+  background: #e2e2e2;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  visibility: hidden;
 }
