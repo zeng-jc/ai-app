@@ -29,7 +29,7 @@
   --m-color-bg-secondary: rgb(0 0 0 / 0.03);
 }
 
-.dark {
+.theme-dark {
   --m-color-title: rgb(255 255 255 / 0.9);
   --m-color-text-primary: rgb(255 255 255 / 0.9);
   --m-color-text-secondary: rgb(255 255 255 / 0.7);
@@ -50,9 +50,4 @@
 }
 ::-webkit-scrollbar-track {
   visibility: hidden;
-}
-
-.active-chat {
-  color: #0958d9 !important;
-  border-color: #0958d9 !important;
 }
