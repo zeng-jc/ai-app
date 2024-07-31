@@ -31,8 +31,7 @@ const Chat: React.FC = () => {
   const [curIndex, setCurIndex] = useState(0);
   const [searchVal, setSearchVal] = useState("");
   const [themeMode, setThemeMode] = useState("light");
-  const [primary, setPrimary] = React.useState("#1677ff");
-
+  const [primaryColor, setPrimaryColor] = React.useState("#1677ff");
   const chatList = new Array(20).fill(1).map((_, index) => ({
     title: `New Chat ${index}`,
   }));
@@ -57,7 +56,7 @@ const Chat: React.FC = () => {
         algorithm:
           themeMode === "light" ? theme.defaultAlgorithm : theme.darkAlgorithm,
         token: {
-          colorPrimary: primary,
+          colorPrimary: primaryColor,
         },
       }}
     >
@@ -116,8 +115,8 @@ const Chat: React.FC = () => {
                       style={
                         curIndex === index
                           ? {
-                              color: primary,
-                              borderColor: primary,
+                              color: primaryColor,
+                              borderColor: primaryColor,
                             }
                           : {}
                       }
@@ -158,14 +157,14 @@ const Chat: React.FC = () => {
               onClick={themeSwitch}
             />
             <ColorPicker
-              value={primary}
-              onChangeComplete={(color) => setPrimary(color.toHexString())}
+              value={primaryColor}
+              onChangeComplete={(color) => setPrimaryColor(color.toHexString())}
             />
           </Header>
-          <Content className="my-6 mx-6 p-6 rounded-md bg-white dark:bg-zinc-900">
+          <Content className="my-6 mx-6 p-6 rounded-md bg-white dark:bg-zinc-900 flex items-center justify-center">
             <Empty
               image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-              imageStyle={{ margin: "140px auto 0", width: "fit-content" }}
+              imageStyle={{ margin: "0 auto", width: "fit-content" }}
               description={<span></span>}
             >
               <Button type="primary" onClick={createNewChat}>
