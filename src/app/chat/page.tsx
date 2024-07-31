@@ -25,6 +25,7 @@ import {
 } from "antd";
 const { Header, Sider, Content } = Layout;
 const siderWidth = 240;
+import styles from "./styles.module.css";
 
 const Chat: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -50,6 +51,7 @@ const Chat: React.FC = () => {
       themeMode === "light" ? "dark" : "light";
     setThemeMode(themeMode === "light" ? "dark" : "light");
   };
+  console.log("collapsed", collapsed);
   return (
     <ConfigProvider
       theme={{
@@ -61,6 +63,7 @@ const Chat: React.FC = () => {
       }}
     >
       <Layout hasSider>
+        {!collapsed && <div className={styles["mobile-sidebar-mask"]}></div>}
         <Sider
           breakpoint="md"
           collapsedWidth="0"
@@ -69,7 +72,7 @@ const Chat: React.FC = () => {
             console.log(collapsed, type);
           }}
           width={siderWidth}
-          className="h-[100vh]"
+          className="h-[100vh] relative z-10"
           trigger={null}
           collapsible
           collapsed={collapsed}
@@ -145,9 +148,7 @@ const Chat: React.FC = () => {
               type="text"
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
               onClick={() => setCollapsed(!collapsed)}
-              style={{
-                width: 64,
-              }}
+              className="relative z-10 w-16"
             />
             <Switch
               className="mr-2"

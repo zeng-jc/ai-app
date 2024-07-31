@@ -1,0 +1,19 @@
+.mobile-sidebar-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 1 !important;
+  background-color: rgba(0, 0, 0, 0.53) !important;
+}
+@media screen and (min-width: 576px) {
+  .mobile-sidebar-mask {
+    display: none;
+  }
+}
