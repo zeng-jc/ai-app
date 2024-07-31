@@ -92,21 +92,15 @@ const Chat: React.FC = () => {
                 onChange={searchChangeHandle}
                 placeholder="聊天搜索"
                 className="mr-1"
-                prefix={<OpenAIOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
-                suffix={<SearchOutlined style={{ color: "rgba(0,0,0,.45)" }} />}
+                prefix={<OpenAIOutlined />}
+                suffix={<SearchOutlined />}
               />
               <Tooltip title="新建聊天">
                 <Button>+</Button>
               </Tooltip>
             </div>
             <div className="overflow-scroll flex-1">
-              <Space
-                direction="vertical"
-                size={4}
-                style={{
-                  width: "100%",
-                }}
-              >
+              <Space direction="vertical" size={4} className="w-[100%]">
                 {chatList
                   .filter(
                     (item) => !searchVal || item.title.includes(searchVal)
